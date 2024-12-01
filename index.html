@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nasrin, Will You Be Mine?</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            animation: background 8s infinite alternate;
+            overflow: hidden;
+        }
+
+        @keyframes background {
+            0% { background: linear-gradient(135deg, #ff9a9e, #fad0c4); }
+            100% { background: linear-gradient(135deg, #a18cd1, #fad0c4); }
+        }
+
+        .container {
+            text-align: center;
+            color: white;
+            max-width: 90%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        p {
+            font-size: 1.5rem;
+            margin: 10px 0;
+            animation: fadeIn 3s ease-in-out 1s;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            color: white;
+            background-color: #ff6f61;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            margin: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 3s ease-in-out 2s;
+        }
+
+        button:hover {
+            background-color: #ff3d2e;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .image-container {
+            margin-top: 20px;
+        }
+
+        .flower-animation {
+            display: none;
+            animation: flower 3s infinite;
+        }
+
+        @keyframes flower {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(360deg) scale(1.2); }
+        }
+
+        .quote {
+            font-size: 1.2rem;
+            margin-top: 20px;
+            animation: fadeIn 3s ease-in-out 2.5s;
+        }
+
+        .flower-message {
+            display: none;
+            color: gold;
+            font-size: 2rem;
+            margin-top: 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .proposal-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid #ff6f61;
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
+            margin: 20px auto;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            p { font-size: 1.2rem; }
+            button { font-size: 1rem; padding: 8px 16px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://res.cloudinary.com/dacgtogmv/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1733043536/WhatsApp_Image_2024-12-01_at_14.27.20_7cedc745_vokb8q.jpg" alt="Nasrin's Image" class="proposal-image">
+        <h1>Dear Nasrin,</h1>
+        <p>You are the reason behind my smile. ❤</p>
+        <p>Will you be mine forever? 🌹</p>
+
+        <div class="buttons">
+            <button onclick="handleYes()">Yes</button>
+            <button onclick="handleNo()">No</button>
+        </div>
+
+        <div class="image-container" id="flowerAnimation">
+            <img src="flower.png" alt="Flower Animation" class="flower-animation">
+        </div>
+
+        <p class="flower-message" id="flowerMessage">"You said yes! My heart is yours forever. 💖"</p>
+
+        <p class="quote" id="quote" style="display: none;">"Please don’t break my heart, Nasrin. 😢"</p>
+    </div>
+
+    <script>
+        let noClickCount = 0;
+
+        // Sad Quotes with Emojis
+        const quotes = [
+            "Without you, life has no meaning. 💔",
+            "You are my everything, Nasrin. 🌸",
+            "Every second without you feels like a lifetime. 😞",
+            "Please don’t leave me like this. 😔",
+            "You’re my world; I’ll wait for you forever. 🌎❤",
+            "Even if you say no, I’ll never stop loving you. 🥺",
+            "You complete me, Nasrin. 🧩",
+            "I’ll do anything to make you happy. 🌹",
+            "I’ll cherish you forever, even if you say no. 💕",
+            "My heart beats only for you, Nasrin. 💓"
+        ];
+
+        // Handle "Yes" button click
+        function handleYes() {
+            const flowerAnimation = document.getElementById('flowerAnimation');
+            const flowerMessage = document.getElementById('flowerMessage');
+
+            flowerAnimation.style.display = 'block';
+            flowerMessage.style.display = 'block';
+
+            // Animation effects
+            flowerAnimation.innerHTML = '<img src="flower.png" class="flower-animation" alt="Flower Animation">';
+            alert("Thank you, Nasrin! ❤ You’ve made me the happiest person alive.");
+        }
+
+        // Handle "No" button click
+        function handleNo() {
+            const quoteElement = document.getElementById('quote');
+
+            if (noClickCount < quotes.length) {
+                quoteElement.style.display = 'block';
+                quoteElement.textContent = quotes[noClickCount];
+                noClickCount++;
+            } else {
+                alert("I’ll wait for you forever, Nasrin.");
+            }
+        }
+    </script>
+</body>
+</html>
